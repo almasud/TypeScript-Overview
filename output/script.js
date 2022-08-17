@@ -17,5 +17,5 @@ players.push(watson);
 players[0].name = "Sakib Al Hasan";
 console.log(players[0].name);
 console.log(players[0].country); // Read only property
-console.log(players[1].play());
+players[1].play();
 // console.log(players[1].age);  // Can't access private property
