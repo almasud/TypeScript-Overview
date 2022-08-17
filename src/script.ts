@@ -1,14 +1,14 @@
-import {Player} from './classes/Player.js';
+// Array
+let a = [3, "Hello", {t: 3}];
+// Can assign only number, string or object in any position. 
+// Only Type is mandatory not order.
+a[0] = "World";
 
-let sakib = new Player("Sakib", 28);
-let watson = new Player("Shane Watson", 28, "Australia");
+// Tuple
+let b: [number, string, object] = [3, "Hello", {t: 3}];
+// Can assign only number, string or object in specific order. 
+// Type and order is mandatory.
+// b[0] = "World";
+b[0] = 4;
 
-const players: Player[] = [];
-players.push(sakib);
-players.push(watson);
-
-players[0].name = "Sakib Al Hasan"
-console.log(players[0].name);
-console.log(players[0].country);  // Read only property
-players[1].play();
-// console.log(players[1].age);  // Can't access private property
+console.log(`a[0]: ${a[0]} and b[1]: ${b[1]}`);
