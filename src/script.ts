@@ -1,27 +1,28 @@
-// Type aliace
-type StringOrNumber = string | number;  // Type is string or number
-type UserType = {name: string, age: number}
-// Function signature
-let addTwoNumber: (numberOne: number, numberTwo: number) => number;
+class Player {
+    name: string;  // By default public
+    readonly country: string;
 
-// Function declaration and defination
-const userDetails = (
-    id: StringOrNumber,
-    user: UserType,
-) => {
-    console.log(`User id: ${id}, name: ${user.name} and age: ${user.age}`);
+    constructor(
+        name: string, private age: number, country: string = "Bangladesh"
+    ) {
+        this.name = name;
+        this.country = country;
+    }
+
+    play() {
+        console.log(`${this.name}, age: ${this.age} from ${this.country} is playing...`);
+    }
 }
 
-const sayHello = (user: UserType) => {
-    console.log(`Hello ${user.age > 50 ? "Sir" : "Mr."}`);
-}
+let sakib = new Player("Sakib", 28);
+let watson = new Player("Shane Watson", 28, "Australia");
 
-userDetails(23, {name: "Almasud", age: 23});
-sayHello({name: "Rafik", age: 65});
+const players: Player[] = [];
+players.push(sakib);
+players.push(watson);
 
-// Function defination
-addTwoNumber = (one: number, two: number) => {
-    return one + two;
-}
-
-console.log(addTwoNumber(4, 6))
+players[0].name = "Sakib Al Hasan"
+console.log(players[0].name);
+console.log(players[0].country);  // Read only property
+console.log(players[1].play());
+// console.log(players[1].age);  // Can't access private property

@@ -1,17 +1,21 @@
 "use strict";
-// Function signature
-let addTwoNumber;
-// Function declaration and defination
-const userDetails = (id, user) => {
-    console.log(`User id: ${id}, name: ${user.name} and age: ${user.age}`);
-};
-const sayHello = (user) => {
-    console.log(`Hello ${user.age > 50 ? "Sir" : "Mr."}`);
-};
-userDetails(23, { name: "Almasud", age: 23 });
-sayHello({ name: "Rafik", age: 65 });
-// Function defination
-addTwoNumber = (one, two) => {
-    return one + two;
-};
-console.log(addTwoNumber(4, 6));
+class Player {
+    constructor(name, age, country = "Bangladesh") {
+        this.age = age;
+        this.name = name;
+        this.country = country;
+    }
+    play() {
+        console.log(`${this.name}, age: ${this.age} from ${this.country} is playing...`);
+    }
+}
+let sakib = new Player("Sakib", 28);
+let watson = new Player("Shane Watson", 28, "Australia");
+const players = [];
+players.push(sakib);
+players.push(watson);
+players[0].name = "Sakib Al Hasan";
+console.log(players[0].name);
+console.log(players[0].country); // Read only property
+console.log(players[1].play());
+// console.log(players[1].age);  // Can't access private property
